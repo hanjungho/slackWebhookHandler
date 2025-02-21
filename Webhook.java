@@ -9,14 +9,16 @@ public class Webhook {
         String prompt = System.getenv("LLM_PROMPT");
         String llmResult = useLLM(prompt);
         System.out.println("llmResult = " + llmResult);
-        String imagePrompt = System.getenv("IMAGE_PROMPT");
+        String template = System.getenv("IMAGE_PROMPT");
+        String imagePrompt = template.formatted(llmResult);
+        System.out.println("imagePrompt = " + imagePrompt);
         String llmImageResult = useLLMForImage(llmResult, imagePrompt);
         System.out.println("llmImageResult = " + llmImageResult);
         String title = System.getenv("MESSAGE_TITLE");
         sendSlackMessage(title, llmResult, llmImageResult);
     }
 
-    public static String useLLMForImage(String prompt, String imagePrompt) {
+    public static String useLLMForImage(String prompt) {
 
         // 이름 바꾸기 -> 해당 메서드 내부? 클래스를 기준하다면 그 내부만 바꿔줌
         String apiUrl = System.getenv("LLM2_API_URL"); // 환경변수로 관리
@@ -25,14 +27,14 @@ public class Webhook {
 //        String payload = "{\"text\": \"" + prompt + "\"}";
         String payload = """
                 {
-                  "prompt": "%s\\n%s",
+                  "prompt": "%s",
                   "model": "%s",
                   "width": 1440,
                   "height": 1440,
                   "steps": 4,
                   "n": 1
                 }
-                """.formatted(prompt, imagePrompt, model);
+                """.formatted(prompt, model);
         HttpClient client = HttpClient.newHttpClient(); // 새롭게 요청할 클라이언트 생성
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(apiUrl)) // URL을 통해서 어디로 요청을 보내는지 결정
