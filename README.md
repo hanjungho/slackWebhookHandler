@@ -1,6 +1,6 @@
 # slackWebhookHandler
 
 ```
-- Bot.java
+- Webhook.java
 - .github/workflows/send-message.yml
 ```

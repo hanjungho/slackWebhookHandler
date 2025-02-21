@@ -20,8 +20,8 @@ jobs:
 
       - name: Compile and Run Bot
         run: |
-          javac Solution02.java
-          java Solution02
+          javac Webhook.java
+          java Webhook
         env:
           LLM2_API_KEY: ${{ secrets.LLM2_API_KEY }}
           LLM2_API_URL: ${{ vars.LLM2_API_URL }}
