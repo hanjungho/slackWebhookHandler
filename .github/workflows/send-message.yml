@@ -19,7 +19,7 @@ jobs:
           java-version: '17'
 
       - name: Compile and Run Bot
-        run: |
+        run: 
           javac Solution02.java  // 컴파일
           java Solution02       // 실행
         env:
