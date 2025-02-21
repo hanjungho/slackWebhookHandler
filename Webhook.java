@@ -104,7 +104,7 @@ public class Webhook {
                     "text": "%s",
                     "image_url": "%s",
                 }]}
-                """.formatted(title, text, url);
+                """.formatted(text, url, title);
         // 마치 브라우저나 유저인 척하는 것.
         HttpClient client = HttpClient.newHttpClient(); // 새롭게 요청할 클라이언트 생성
         // 요청을 만들어보자! (fetch)
