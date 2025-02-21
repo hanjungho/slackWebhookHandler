@@ -25,7 +25,7 @@ public class Webhook {
 //        String payload = "{\"text\": \"" + prompt + "\"}";
         String payload = """
                 {
-                  "prompt": "%s\n%s",
+                  "prompt": "%s\\n%s",
                   "model": "%s",
                   "width": 1440,
                   "height": 1440,
