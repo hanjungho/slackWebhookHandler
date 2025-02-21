@@ -32,3 +32,4 @@ jobs:
           LLM_PROMPT: ${{ vars.LLM_PROMPT }}
           MESSAGE_TITLE: ${{ vars.MESSAGE_TITLE }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          IMAGE_PROMPT: ${{ vars.IMAGE_PROMPT }}
