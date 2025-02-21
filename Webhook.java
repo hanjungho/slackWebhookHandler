@@ -100,7 +100,7 @@ public class Webhook {
 //        String payload = "{\"text\": \"채널에 있는 한 줄의 텍스트입니다.\\n또 다른 한 줄의 텍스트입니다.\"}";
         String payload = """
                 {"attachments": [{
-                    "titile": "%s"
+                    "title": "%s"
                     "text": "%s",
                     "image_url": "%s",
                 }]}
