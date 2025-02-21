@@ -20,8 +20,8 @@ jobs:
 
       - name: Compile and Run Bot
         run: |
-          javac Solution02.java  // 컴파일
-          java Solution02       // 실행
+          javac Solution02.java
+          java Solution02
         env:
           LLM2_API_KEY: ${{ secrets.LLM2_API_KEY }}
           LLM2_API_URL: ${{ vars.LLM2_API_URL }}
