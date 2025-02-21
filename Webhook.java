@@ -7,12 +7,14 @@ public class Webhook {
 
     public static void main(String[] args) {
         String prompt = System.getenv("LLM_PROMPT");
-        String llmResult = useLLM(prompt);
+        String safePrompt = prompt.replace("\r", "").replace("\n", "\\n").replace("\"", "\\\"");
+        String llmResult = useLLM(safePrompt);
         System.out.println("llmResult = " + llmResult);
         String template = System.getenv("IMAGE_PROMPT");
         String imagePrompt = template.formatted(llmResult);
         System.out.println("imagePrompt = " + imagePrompt);
-        String llmImageResult = useLLMForImage(imagePrompt);
+        String safeImagePrompt = imagePrompt.replace("\r", "").replace("\n", "\\n").replace("\"", "\\\"");
+        String llmImageResult = useLLMForImage(safeImagePrompt);
         System.out.println("llmImageResult = " + llmImageResult);
         String title = System.getenv("MESSAGE_TITLE");
         sendSlackMessage(title, llmResult, llmImageResult);
