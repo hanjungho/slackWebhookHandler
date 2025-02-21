@@ -48,7 +48,7 @@ public class Webhook {
                     HttpResponse.BodyHandlers.ofString());
             System.out.println("response.statusCode() = " + response.statusCode());
             System.out.println("response.body() = " + response.body());
-            result = response.body().split("\"url\": \"")[1].split("\",")[0];
+            result = response.body().split("url\": \"")[1].split("\",")[0];
         } catch (Exception e) { // catch exception e
             throw new RuntimeException(e);
         }
